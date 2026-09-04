@@ -1,0 +1,33 @@
+{
+  "name": "wb-expert-listener",
+  "version": "0.1.0",
+  "description": "WorkBuddy customer-service assistant listener: multi-channel bot sessions via CodeBuddy Agent SDK",
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint src --ext .ts --fix"
+  },
+  "dependencies": {
+    "@tencent-ai/agent-sdk": "^0.1.0",
+    "better-sqlite3": "^11.3.0",
+    "chokidar": "^4.0.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "p-limit": "^6.1.0",
+    "pino": "^9.3.2",
+    "yaml": "^2.5.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.11",
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.5.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
+  }
+}
