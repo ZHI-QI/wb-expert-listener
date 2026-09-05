@@ -36,7 +36,7 @@ export async function main(deps: DispatcherDeps & { ops?: Partial<OpsContext>; s
   mountWeb(app);
 
   const enabled: ChannelAdapter[] = [createCliChannel()];
-  if (cfg.channels.feishu.enabled) enabled.push(createFeishuChannel((a) => void a));
+  if (cfg.channels.feishu.enabled) enabled.push(createFeishuChannel());
   if (cfg.channels.wecom.enabled) enabled.push(createWecomChannel());
   if (cfg.channels.clawbot.enabled) enabled.push(createClawbotChannel());
   if (cfg.channels.wechatKf.enabled) enabled.push(createWechatKfChannel((a) => void a));
