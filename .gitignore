@@ -6,3 +6,4 @@ workspaces/
 .env
 *.local.yaml
 config.yaml
+.env.backup*
