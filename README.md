@@ -3,15 +3,24 @@
 > 单机轻量服务：接收飞书/企微/微信ClawBot/微信客服消息 → WorkBuddy 会话 → 回答。
 > 跨 Linux / Windows；专家初始化一条命令部署。
 
+## 分支模型（重要）
+
+| 分支 | 用途 | 谁用 |
+|---|---|---|
+| `main` | 开发主线，最新功能与修复 | 维护者（boos王） |
+| `user-fex` | **用户部署分支**：稳定版，客户机器只跟它 | 客户机 / 客服监控专家 |
+
+用户机升级 = `git fetch && git reset --hard origin/user-fex`（或 `git pull origin user-fex`），**不碰 main**。
+
 ## 快速部署（SC10）
 
 ```bash
-git clone <repo-url> wb-expert-listener
+git clone -b user-fex <repo-url> wb-expert-listener
 cd wb-expert-listener
 node deploy/bootstrap.js     # 自动检测平台 → 装依赖 → pm2 守护 → 生成 .env
 ```
 
-`bootstrap.js` 内部：平台检测（win32 判定）→ npm（npmmirror 镜像）→ uv（清华 PyPI 镜像）→ `.env` 从模板生成 → `pm2 start ecosystem.config.js` + 开机自启注册。
+`bootstrap.js` 内部：平台检测（win32 判定）→ npm（npmmirror 镜像）→ uv（清华 PyPI 镜像）→ `.env` 从模板生成 → `pm2 start ecosystem.config.cjs` + 开机自启注册。
 
 ## 环境要求
 
